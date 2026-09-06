@@ -1,0 +1,128 @@
+[
+  {"id":"m001","word":"am","target":"a","audio":"audio/coded/m001.wav","image":"images/m001.png"},
+  {"id":"m002","word":"baj","target":"a","audio":"audio/coded/m002.wav","image":null},
+  {"id":"m003","word":"aak'","target":"aa","audio":"audio/coded/m003.wav","image":null},
+  {"id":"m004","word":"baach","target":"aa","audio":"audio/coded/m004.wav","image":null},
+  {"id":"m005","word":"áalkab","target":"áa","audio":"audio/coded/m005.wav","image":null},
+  {"id":"m006","word":"báat","target":"áa","audio":"audio/coded/m006.wav","image":null},
+  {"id":"m007","word":"ja'","target":"a'","audio":"audio/coded/m007.wav","image":null},
+  {"id":"m008","word":"a'al","target":"a'a","audio":"audio/coded/m008.wav","image":"images/m008.png"},
+  {"id":"m009","word":"ja'as","target":"a'a","audio":"audio/coded/m009.wav","image":"images/m009.png"},
+
+  {"id":"m010","word":"báalam","target":"b","audio":"audio/coded/m010.wav","image":null},
+  {"id":"m011","word":"abal","target":"b","audio":"audio/coded/m011.wav","image":null},
+  {"id":"m012","word":"táab","target":"b","audio":"audio/coded/m012.wav","image":null},
+
+  {"id":"m013","word":"cheem","target":"ch","audio":null,"image":null},
+  {"id":"m014","word":"pachkab","target":"ch","audio":"audio/coded/m014.wav","image":null},
+  {"id":"m015","word":"muuch","target":"ch","audio":"audio/coded/m015.wav","image":null},
+
+  {"id":"m016","word":"ch'amak","target":"ch'","audio":"audio/coded/m016.wav","image":null},
+  {"id":"m017","word":"íich'ak","target":"ch'","audio":"audio/coded/m017.wav","image":null},
+  {"id":"m018","word":"beech'","target":"ch'","audio":"audio/coded/m018.wav","image":null},
+
+  {"id":"m019","word":"eb","target":"e","audio":"audio/coded/m019.wav","image":null},
+  {"id":"m020","word":"wenel","target":"e","audio":"audio/coded/m020.wav","image":null},
+  {"id":"m021","word":"eek'","target":"ee","audio":"audio/coded/m021.wav","image":null},
+  {"id":"m022","word":"beel","target":"ee","audio":"audio/coded/m022.wav","image":null},
+  {"id":"m023","word":"éek'","target":"ée","audio":"audio/coded/m023.wav","image":null},
+  {"id":"m024","word":"k'éek'en","target":"ée","audio":"audio/coded/m024.wav","image":null},
+  {"id":"m025","word":"le'","target":"e'","audio":"audio/coded/m025.wav","image":null},
+  {"id":"m026","word":"e'el","target":"e'e","audio":"audio/coded/m026.wav","image":null},
+  {"id":"m027","word":"xe'ep","target":"e'e","audio":"audio/coded/m027.wav","image":null},
+
+  {"id":"m028","word":"ich","target":"i","audio":"audio/coded/m028.wav","image":null},
+  {"id":"m029","word":"kij","target":"i","audio":"audio/coded/m029.wav","image":null},
+  {"id":"m030","word":"iim","target":"ii","audio":"audio/coded/m030.wav","image":null},
+  {"id":"m031","word":"kiik","target":"ii","audio":"audio/coded/m031.wav","image":null},
+  {"id":"m032","word":"íikim","target":"íi","audio":"audio/coded/m032.wav","image":null},
+  {"id":"m033","word":"síina'an","target":"íi","audio":"audio/coded/m033.wav","image":null},
+  {"id":"m034","word":"ni'","target":"i'","audio":"audio/coded/m034.wav","image":null},
+  {"id":"m035","word":"i'naj","target":"i'i","audio":"audio/coded/m035.wav","image":"images/m035.png"},
+  {"id":"m036","word":"chi'ibal","target":"i'i","audio":"audio/coded/m036.wav","image":"images/m036.png"},
+
+  {"id":"m037","word":"juuj","target":"j","audio":"audio/coded/m037.wav","image":null},
+  {"id":"m038","word":"sojol","target":"j","audio":"audio/coded/m038.wav","image":null},
+  {"id":"m039","word":"kéej","target":"j","audio":"audio/coded/m039.wav","image":null},
+
+  {"id":"m040","word":"kib","target":"k","audio":"audio/coded/m040.wav","image":null},
+  {"id":"m041","word":"mukuy","target":"k","audio":"audio/coded/m041.wav","image":null},
+  {"id":"m042","word":"iik","target":"k","audio":"audio/coded/m042.wav","image":null},
+
+  {"id":"m043","word":"k'u'","target":"k'","audio":"audio/coded/m043.wav","image":null},
+  {"id":"m044","word":"sak'ab","target":"k'","audio":"audio/coded/m044.wav","image":null},
+  {"id":"m045","word":"k'áak'","target":"k'","audio":"audio/coded/m045.wav","image":null},
+
+  {"id":"m046","word":"luuch","target":"l","audio":"audio/coded/m046.wav","image":null},
+  {"id":"m047","word":"mulix","target":"l","audio":"audio/coded/m047.wav","image":null},
+  {"id":"m048","word":"bu'ul","target":"l","audio":"audio/coded/m048.wav","image":null},
+
+  {"id":"m049","word":"miis","target":"m","audio":"audio/coded/m049.wav","image":null},
+  {"id":"m050","word":"tsíimin","target":"m","audio":"audio/coded/m050.wav","image":null},
+  {"id":"m051","word":"kitam","target":"m","audio":"audio/coded/m051.wav","image":null},
+
+  {"id":"m052","word":"nal","target":"n","audio":"audio/coded/m052.wav","image":null},
+  {"id":"m053","word":"xnuuk","target":"n","audio":"audio/coded/m053.wav","image":null},
+  {"id":"m054","word":"kaan","target":"n","audio":"audio/coded/m054.wav","image":null},
+
+  {"id":"m055","word":"otoch","target":"o","audio":"audio/coded/m055.wav","image":null},
+  {"id":"m056","word":"polok","target":"o","audio":"audio/coded/m056.wav","image":null},
+  {"id":"m057","word":"ooch","target":"oo","audio":"audio/coded/m057.wav","image":null},
+  {"id":"m058","word":"nook'","target":"oo","audio":"audio/coded/m058.wav","image":null},
+  {"id":"m059","word":"óox","target":"óo","audio":"audio/coded/m059.wav","image":null},
+  {"id":"m060","word":"sóol","target":"óo","audio":"audio/coded/m060.wav","image":null},
+  {"id":"m061","word":"ch'o'","target":"o'","audio":"audio/coded/m061.wav","image":"images/m061.png"},
+  {"id":"m062","word":"o'olkil","target":"o'o","audio":"audio/coded/m062.wav","image":null},
+  {"id":"m063","word":"mo'ol","target":"o'o","audio":"audio/coded/m063.wav","image":"images/m063.png"},
+
+  {"id":"m064","word":"peek'","target":"p","audio":"audio/coded/m064.wav","image":null},
+  {"id":"m065","word":"péepen","target":"p","audio":"audio/coded/m065.wav","image":null},
+  {"id":"m066","word":"óop","target":"p","audio":"audio/coded/m066.wav","image":null},
+
+  {"id":"m067","word":"p'aak","target":"p'","audio":"audio/coded/m067.wav","image":null},
+  {"id":"m068","word":"p'óop'ox","target":"p'","audio":"audio/coded/m068.wav","image":null},
+  {"id":"m069","word":"teep'","target":"p'","audio":"audio/coded/m069.wav","image":null},
+
+  {"id":"m070","word":"úurich","target":"r","audio":"audio/coded/m070.wav","image":"images/m070.png"},
+
+  {"id":"m071","word":"so'oy","target":"s","audio":"audio/coded/m071.wav","image":null},
+  {"id":"m072","word":"máaskab","target":"s","audio":"audio/coded/m072.wav","image":null},
+  {"id":"m073","word":"máas","target":"s","audio":"audio/coded/m073.wav","image":null},
+
+  {"id":"m074","word":"tuunich","target":"t","audio":"audio/coded/m074.wav","image":null},
+  {"id":"m075","word":"peten","target":"t","audio":"audio/coded/m075.wav","image":null},
+  {"id":"m076","word":"siit","target":"t","audio":"audio/coded/m076.wav","image":null},
+
+  {"id":"m077","word":"t'u'ul","target":"t'","audio":"audio/coded/m077.wav","image":null},
+  {"id":"m078","word":"t'olot'ol","target":"t'","audio":"audio/coded/m078.wav","image":null},
+  {"id":"m079","word":"t'uut'","target":"t'","audio":"audio/coded/m079.wav","image":null},
+
+  {"id":"m080","word":"tso'","target":"ts","audio":"audio/coded/m080.wav","image":null},
+  {"id":"m081","word":"máatsab","target":"ts","audio":"audio/coded/m081.wav","image":null},
+  {"id":"m082","word":"wits","target":"ts","audio":"audio/coded/m082.wav","image":null},
+
+  {"id":"m083","word":"ts'óol","target":"ts'","audio":"audio/coded/m083.wav","image":"images/m083.png"},
+  {"id":"m084","word":"íits'in","target":"ts'","audio":"audio/coded/m084.wav","image":"images/m084.png"},
+  {"id":"m085","word":"ts'uts'","target":"ts'","audio":"audio/coded/m085.wav","image":"images/m085.png"},
+
+  {"id":"m086","word":"uj","target":"u","audio":"audio/coded/m086.wav","image":"images/m086.png"},
+  {"id":"m087","word":"turix","target":"u","audio":"audio/coded/m087.wav","image":"images/m087.png"},
+  {"id":"m088","word":"suum","target":"uu","audio":"audio/coded/m088.wav","image":null},
+  {"id":"m089","word":"úukum","target":"úu","audio":"audio/coded/m089.wav","image":null},
+  {"id":"m090","word":"kúuk","target":"úu","audio":"audio/coded/m090.wav","image":"images/m090.png"},
+  {"id":"m091","word":"lu'","target":"u'","audio":"audio/coded/m091.wav","image":"images/m091.png"},
+  {"id":"m092","word":"u'ul","target":"u'u","audio":"audio/coded/m092.wav","image":null},
+  {"id":"m093","word":"ku'uk","target":"u'u","audio":"audio/coded/m093.wav","image":"images/m093.png"},
+
+  {"id":"m094","word":"wáay","target":"w","audio":"audio/coded/m094.wav","image":"images/m094.png"},
+  {"id":"m095","word":"chukwa'","target":"w","audio":"audio/coded/m095.wav","image":null},
+  {"id":"m096","word":"ajaw","target":"w","audio":"audio/coded/m096.wav","image":null},
+
+  {"id":"m097","word":"xikin","target":"x","audio":"audio/coded/m097.wav","image":"images/m097.png"},
+  {"id":"m098","word":"k'oxol","target":"x","audio":"audio/coded/m098.wav","image":"images/m098.png"},
+  {"id":"m099","word":"xúux","target":"x","audio":"audio/coded/m099.wav","image":"images/m099.png"},
+
+  {"id":"m100","word":"ya'","target":"y","audio":"audio/coded/m100.wav","image":null},
+  {"id":"m101","word":"ts'awayak'","target":"y","audio":"audio/coded/m101.wav","image":null},
+  {"id":"m102","word":"kay","target":"y","audio":"audio/coded/m102.wav","image":null}
+]

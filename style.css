@@ -1,0 +1,150 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f7f7f5;
+  color: #222;
+}
+
+main {
+  width: 90%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 60px 0;
+}
+
+header {
+  margin-bottom: 40px;
+}
+
+h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+header p {
+  font-size: 18px;
+  line-height: 1.5;
+  color: #666;
+}
+
+.week-card {
+  background: white;
+  padding: 28px;
+  border-radius: 18px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.week-card > p:first-child {
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  color: #777;
+}
+
+.week-card h2 {
+  font-size: 24px;
+  margin: 10px 0;
+}
+
+.week-card p {
+  line-height: 1.5;
+}
+
+button {
+  width: 100%;
+  margin-top: 20px;
+  padding: 15px;
+
+  border: none;
+  border-radius: 12px;
+
+  font-size: 17px;
+  font-weight: bold;
+
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.85;
+}
+
+
+.practice-card {
+  background: white;
+  padding: 28px;
+  border-radius: 18px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.practice-card img {
+  width: 100%;
+  max-width: 320px;
+  border-radius: 16px;
+  margin-bottom: 24px;
+}
+
+.practice-card h2 {
+  font-size: 48px;
+  margin: 10px 0 20px;
+}
+
+.target {
+  background: #ffe58a;
+  padding: 0 4px;
+  border-radius: 6px;
+}
+
+.practice-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  font-size: 14px;
+  color: #666;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.navigation button {
+  flex: 1;
+}
+
+.no-audio {
+  color: #888;
+  font-size: 14px;
+}
+
+.language-switcher {
+  display: flex;
+  justify-content: flex-end;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+
+.language-button {
+  width: auto;
+  margin: 0;
+  padding: 7px 11px;
+  font-size: 13px;
+  border-radius: 8px;
+  background: transparent;
+  border: 1px solid #ccc;
+}
+
+.language-button:hover {
+  opacity: 0.7;
+}
+
+.active-language {
+  font-weight: bold;
+  border: 2px solid #333;
+}
