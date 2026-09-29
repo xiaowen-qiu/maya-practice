@@ -2228,33 +2228,18 @@ function showConversationTwo() {
               id="maya-follow-text"
             >
 
-              ${
-                line.id === "c02-01"
-
-                  ? `
-
-                    <span
-                      class="follow-word"
-                      data-start="0.00"
-                      data-end="0.70"
-                    >Ma’alob</span>
-
-                    <span
-                      class="follow-word"
-                      data-start="0.70"
-                      data-end="1.25"
-                    >k’iin,</span>
-
-                    <span
-                      class="follow-word"
-                      data-start="1.25"
-                      data-end="2.50"
-                    >xch’úupal</span>
-
-                  `
-
-                  : line.maya
-              }
+              ${line.maya
+  .split(/\s+/)
+  .map(
+    (word, index) => `
+      <span
+        class="follow-word"
+        data-word-index="${index}"
+      >${word}</span>
+    `
+  )
+  .join(" ")
+}
 
             </h2>
 
@@ -2415,93 +2400,154 @@ function showConversationTwo() {
 
 
           const followWords =
-            document.querySelectorAll(
-              ".follow-word"
-            );
+  document.querySelectorAll(
+    ".follow-word"
+  );
 
 
-          function clearHighlight() {
+function clearHighlight() {
 
-            followWords.forEach(
-              word => {
+  followWords.forEach(
+    word => {
+      word.classList.remove(
+        "active-word"
+      );
+    }
+  );
 
-                word.classList.remove(
-                  "active-word"
-                );
+}
 
-              }
-            );
+
+audio.addEventListener(
+  "loadedmetadata",
+  () => {
+
+    const duration =
+      audio.duration;
+
+    const wordsArray =
+      Array.from(
+        followWords
+      );
+
+
+    /*
+      Give slightly more time to longer words.
+      This makes the visual movement feel
+      more natural than dividing every word
+      into exactly equal pieces.
+    */
+
+    const weights =
+      wordsArray.map(
+        word => {
+
+          const cleanWord =
+            word.textContent
+              .replace(
+                /[¿?¡!.,;:]/g,
+                ""
+              );
+
+          return Math.max(
+            cleanWord.length,
+            2
+          );
+
+        }
+      );
+
+
+    const totalWeight =
+      weights.reduce(
+        (sum, weight) =>
+          sum + weight,
+        0
+      );
+
+
+    let boundaries = [];
+    let accumulated = 0;
+
+
+    weights.forEach(
+      weight => {
+
+        const start =
+          (
+            accumulated /
+            totalWeight
+          ) * duration;
+
+
+        accumulated +=
+          weight;
+
+
+        const end =
+          (
+            accumulated /
+            totalWeight
+          ) * duration;
+
+
+        boundaries.push({
+          start,
+          end
+        });
+
+      }
+    );
+
+
+    audio.addEventListener(
+      "timeupdate",
+      () => {
+
+        const currentTime =
+          audio.currentTime;
+
+
+        wordsArray.forEach(
+          (word, index) => {
+
+            const timing =
+              boundaries[index];
+
+
+            if (
+              currentTime >=
+                timing.start &&
+              currentTime <
+                timing.end
+            ) {
+
+              word.classList.add(
+                "active-word"
+              );
+
+            } else {
+
+              word.classList.remove(
+                "active-word"
+              );
+
+            }
 
           }
+        );
+
+      }
+    );
+
+  }
+);
 
 
-          /*
-            At the moment, timed word highlighting
-            exists only where timing data is present.
-
-            For c02-01 we already have the prototype
-            timing values from the previous version.
-          */
-
-          if (
-            followWords.length > 0
-          ) {
-
-            audio.addEventListener(
-              "timeupdate",
-              () => {
-
-                const currentTime =
-                  audio.currentTime;
-
-
-                followWords.forEach(
-                  word => {
-
-                    const start =
-                      Number(
-                        word.dataset.start
-                      );
-
-
-                    const end =
-                      Number(
-                        word.dataset.end
-                      );
-
-
-                    if (
-                      currentTime >= start &&
-                      currentTime < end
-                    ) {
-
-                      word.classList.add(
-                        "active-word"
-                      );
-
-                    } else {
-
-                      word.classList.remove(
-                        "active-word"
-                      );
-
-                    }
-
-                  }
-                );
-
-              }
-            );
-
-
-            audio.addEventListener(
-              "ended",
-              clearHighlight
-            );
-
-          }
-
-
+audio.addEventListener(
+  "ended",
+  clearHighlight
+);
           audio
             .play()
             .catch(
