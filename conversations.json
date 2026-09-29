@@ -1,0 +1,188 @@
+[
+  {
+    "id": "c01",
+    "title": {
+      "en": "Everyday Conversation",
+      "es": "Conversación cotidiana"
+    },
+    "fullAudio": "audio/conversations/c01/c01-full.wav",
+    "lines": [
+      {
+        "id": "c01-01",
+        "speaker": "A",
+        "maya": "¿Bix a beel?",
+        "audio": "audio/conversations/c01/c01-01-maya.wav"
+      },
+      {
+        "id": "c01-02",
+        "speaker": "B",
+        "maya": "Ma’alob, ¿kux teech?",
+        "audio": "audio/conversations/c01/c01-02-maya.wav"
+      },
+      {
+        "id": "c01-03",
+        "speaker": "A",
+        "maya": "Beyxan ten. ¿Tu’ux ka bin te’ súutukila’?",
+        "audio": "audio/conversations/c01/c01-03-maya.wav"
+      },
+      {
+        "id": "c01-04",
+        "speaker": "B",
+        "maya": "Táan in bin tu yotoch in kiik",
+        "audio": "audio/conversations/c01/c01-04-maya.wav"
+      },
+      {
+        "id": "c01-05",
+        "speaker": "A",
+        "maya": "¿Bix u k’aaba’ a kiik?",
+        "audio": "audio/conversations/c01/c01-05-maya.wav"
+      },
+      {
+        "id": "c01-06",
+        "speaker": "B",
+        "maya": "U k’aaba’e’ Karla",
+        "audio": "audio/conversations/c01/c01-06-maya.wav"
+      },
+      {
+        "id": "c01-07",
+        "speaker": "A",
+        "maya": "Jach jats’uts u k’aaba’… tin bin, tak tu láak’ k’iin",
+        "audio": "audio/conversations/c01/c01-07-maya.wav"
+      },
+      {
+        "id": "c01-08",
+        "speaker": "B",
+        "maya": "Ma’alob túun, ¡kanáantabaj!",
+        "audio": "audio/conversations/c01/c01-08-maya.wav"
+      },
+      {
+        "id": "c01-09",
+        "speaker": "A",
+        "maya": "Beyxan teech.",
+        "audio": "audio/conversations/c01/c01-09-maya.wav"
+      }
+    ]
+  },
+
+  {
+    "id": "c02",
+    "title": {
+      "en": "Meeting Someone",
+      "es": "Conociendo a alguien"
+    },
+    "lines": [
+      {
+        "id": "c02-01",
+        "speaker": "A",
+        "maya": "Ma’alob k’iin, xch’úupal",
+        "spanish": "Buenos días muchacha",
+        "mayaAudio": "audio/conversations/c02/c02-01-maya.wav",
+        "spanishAudio": "audio/conversations/c02/c02-01-es.wav"
+      },
+      {
+        "id": "c02-02",
+        "speaker": "B",
+        "maya": "Ma’alob k’iin. ¿Bix a k’aaba’ beya’?",
+        "spanish": "Buenos días, ¿Cómo te llamas?",
+        "mayaAudio": "audio/conversations/c02/c02-02-maya.wav",
+        "spanishAudio": "audio/conversations/c02/c02-02-es.wav"
+      },
+      {
+        "id": "c02-03",
+        "speaker": "A",
+        "maya": "Emily in k’aaba’, ¿Kux teech?",
+        "spanish": "Me llamo Emily, ¿Y tú?",
+        "mayaAudio": "audio/conversations/c02/c02-03-maya.wav",
+        "spanishAudio": "audio/conversations/c02/c02-03-es.wav"
+      },
+      {
+        "id": "c02-04",
+        "speaker": "B",
+        "maya": "Laura in k’aaba’",
+        "spanish": "Me llamo Laura",
+        "mayaAudio": "audio/conversations/c02/c02-04-maya.wav",
+        "spanishAudio": "audio/conversations/c02/c02-04-es.wav"
+      },
+      {
+        "id": "c02-05",
+        "speaker": "A",
+        "maya": "¿Tu’uxilech beya’?",
+        "spanish": "¿De dónde eres?",
+        "mayaAudio": "audio/conversations/c02/c02-05-maya.wav",
+        "spanishAudio": "audio/conversations/c02/c02-05-es.wav"
+      },
+      {
+        "id": "c02-06",
+        "speaker": "B",
+        "maya": "Tipikalilen, ba’ale’ way Campeche kajakbalene’",
+        "spanish": "Soy de Tipikal, pero acá vivo en Campeche.",
+        "mayaAudio": "audio/conversations/c02/c02-06-maya.wav",
+        "spanishAudio": "audio/conversations/c02/c02-06-es.wav"
+      },
+      {
+        "id": "c02-07",
+        "speaker": "A",
+        "maya": "¿Tipikalilech, ten xane’ Tipikalilen, ba’ale’ way Campeche kin meyaje’ ¿Máax a yuum te’ Tipikalo’?",
+        "spanish": "¿Eres de Tipikal? yo también soy de allá, pero trabajo acá en Campeche. ¿Quién es tu padre?",
+        "mayaAudio": "audio/conversations/c02/c02-07-maya.wav",
+        "spanishAudio": "audio/conversations/c02/c02-07-es.wav"
+      },
+      {
+        "id": "c02-08",
+        "speaker": "B",
+        "maya": "Yuum Ismael Chimal ¿A k’ajóol waaj?",
+        "spanish": "Don Ismael Chimal, ¿Lo conoces?",
+        "mayaAudio": "audio/conversations/c02/c02-08-maya.wav",
+        "spanishAudio": "audio/conversations/c02/c02-08-es.wav"
+      },
+      {
+        "id": "c02-09",
+        "speaker": "A",
+        "maya": "In k’aj óol. Jach uts u bisikubaj yéetel in yuum o’ob.",
+        "spanish": "Sí, lo conozco. Se lleva muy bien con mis padres.",
+        "mayaAudio": "audio/conversations/c02/c02-09-maya.wav",
+        "spanishAudio": "audio/conversations/c02/c02-09-es.wav"
+      },
+      {
+        "id": "c02-10",
+        "speaker": "B",
+        "maya": "¿Ba’ax meyajil ka beetik way Campeche’?",
+        "spanish": "¿A qué te dedicas acá en Campeche?",
+        "mayaAudio": "audio/conversations/c02/c02-10-maya.wav",
+        "spanishAudio": "audio/conversations/c02/c02-10-es.wav"
+      },
+      {
+        "id": "c02-11",
+        "speaker": "A",
+        "maya": "Xka’ansajen ti’ jump’éel primaria.",
+        "spanish": "Soy maestra de primaria.",
+        "mayaAudio": "audio/conversations/c02/c02-11-maya.wav",
+        "spanishAudio": "audio/conversations/c02/c02-11-es.wav"
+      },
+      {
+        "id": "c02-12",
+        "speaker": "B",
+        "maya": "Tene’ ma’ xka’ansajeni’, ti’ jump’éel tienda kin meyaj.",
+        "spanish": "Yo no soy maestra, trabajo en una tienda.",
+        "mayaAudio": "audio/conversations/c02/c02-12-maya.wav",
+        "spanishAudio": "audio/conversations/c02/c02-12-es.wav"
+      },
+      {
+        "id": "c02-13",
+        "speaker": "A",
+        "maya": "Ki’imak in wóol úuchik in k’ajóoltikech Laura. Tak tu jeel k’iin.",
+        "spanish": "Fue un gusto conocerte Laura Hasta Pronto.",
+        "mayaAudio": "audio/conversations/c02/c02-13-maya.wav",
+        "spanishAudio": "audio/conversations/c02/c02-13-es.wav"
+      },
+      {
+        "id": "c02-14",
+        "speaker": "B",
+        "maya": "Beyxan teen, ki’imak in wóol úuchik in k’ajóoltikech. Kanáantabaj.",
+        "spanish": "Igualmente, fue un placer conocerte. Cuídate.",
+        "mayaAudio": "audio/conversations/c02/c02-14-maya.wav",
+        "spanishAudio": "audio/conversations/c02/c02-14-es.wav"
+      }
+    ]
+  }
+]

@@ -1,69 +1,273 @@
+/* ========================================
+   MAYA PRACTICE
+   Main stylesheet
+======================================== */
+
+
+/* ========================================
+   1. GLOBAL
+======================================== */
+
 * {
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+
+  font-family:
+    Calibri,
+    "Segoe UI",
+    Arial,
+    sans-serif;
+
   background: #f7f7f5;
   color: #222;
 }
+button,
+input,
+select,
+textarea {
+  font-family: Calibri, "Segoe UI", Arial, sans-serif;
+}
+
+.conversation-transcript,
+.conversation-line,
+.conversation-speaker,
+.conversation-text,
+.conversation-practice-card,
+.conversation-utterance-row,
+.conversation-translation {
+  font-family: Calibri, "Segoe UI", Arial, sans-serif;
+}
+
+
+/* ========================================
+   2. SITE NAVIGATION
+======================================== */
+
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  width: 100%;
+
+  background: rgba(255, 255, 255, 0.96);
+
+  border-bottom: 1px solid #e8e8e3;
+}
+
+.nav-inner {
+  width: 92%;
+  max-width: 1100px;
+  min-height: 64px;
+
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 28px;
+}
+
+
+/* Brand */
+
+button.nav-brand {
+  width: auto;
+
+  margin: 0;
+  padding: 8px 0;
+
+  background: transparent;
+
+  border: none;
+  border-radius: 0;
+
+  color: #222;
+
+  font-family: inherit;
+  font-size: 20px;
+  font-weight: 700;
+
+  white-space: nowrap;
+}
+
+
+/* Navigation links */
+
+.nav-links {
+  display: flex;
+  align-items: center;
+
+  gap: 6px;
+}
+
+button.nav-link {
+  width: auto;
+
+  margin: 0;
+  padding: 9px 13px;
+
+  background: transparent;
+
+  border: none;
+  border-radius: 9px;
+
+  color: #555;
+
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+
+  white-space: nowrap;
+}
+
+button.nav-brand:hover {
+  opacity: 0.7;
+}
+
+button.nav-link:hover {
+  opacity: 1;
+
+  background: #f2f2ee;
+  color: #222;
+}
+
+
+/* ========================================
+   3. MAIN CONTENT
+======================================== */
 
 main {
   width: 90%;
   max-width: 500px;
+
   margin: 0 auto;
-  padding: 60px 0;
+
+  padding: 48px 0 64px;
 }
 
+
+/* ========================================
+   4. HOME HEADER
+======================================== */
+
 header {
-  margin-bottom: 40px;
+  margin-bottom: 32px;
+}
+
+.eyebrow {
+  margin: 0 0 9px;
+
+  color: #777;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
 }
 
 h1 {
+  margin: 0 0 10px;
+
   font-size: 36px;
-  margin-bottom: 10px;
+  line-height: 1.12;
 }
 
 header p {
-  font-size: 18px;
+  font-size: 15px;
   line-height: 1.5;
+
   color: #666;
 }
 
-.week-card {
-  background: white;
-  padding: 28px;
-  border-radius: 18px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+.home-intro {
+  max-width: 420px;
+
+  margin: 0;
+
+  font-size: 17px;
+  line-height: 1.5;
+
+  color: #555;
 }
 
+
+/* ========================================
+   5. GENERAL CARDS
+======================================== */
+
+.week-card,
+.practice-card {
+  background: white;
+
+  padding: 28px;
+
+  border-radius: 18px;
+
+  box-shadow:
+    0 4px 15px rgba(0, 0, 0, 0.07);
+}
+
+
+/* Home card */
+
+.card-label,
 .week-card > p:first-child {
-  font-size: 13px;
-  font-weight: bold;
-  letter-spacing: 1.5px;
+  margin: 0 0 10px;
+
   color: #777;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  letter-spacing: 1.4px;
 }
 
 .week-card h2 {
-  font-size: 24px;
-  margin: 10px 0;
+  margin: 0 0 10px;
+
+  font-size: 25px;
+  line-height: 1.2;
 }
 
+.card-description,
 .week-card p {
   line-height: 1.5;
 }
 
+.card-description {
+  margin: 0;
+
+  color: #555;
+
+  font-size: 16px;
+}
+
+
+/* ========================================
+   6. BUTTONS
+======================================== */
+
 button {
   width: 100%;
+
   margin-top: 20px;
   padding: 15px;
 
   border: none;
   border-radius: 12px;
 
+  font-family: inherit;
   font-size: 17px;
-  font-weight: bold;
+  font-weight: 700;
 
   cursor: pointer;
 }
@@ -73,44 +277,90 @@ button:hover {
 }
 
 
+/* Home actions */
+
+.home-actions {
+  display: flex;
+
+  gap: 10px;
+
+  margin-top: 24px;
+}
+
+.home-actions button {
+  flex: 1;
+
+  margin-top: 0;
+}
+
+.secondary-button {
+  background: #eeeeea;
+}
+
+
+/* ========================================
+   7. WORD PRACTICE
+======================================== */
+
 .practice-card {
-  background: white;
-  padding: 28px;
-  border-radius: 18px;
   text-align: center;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
 }
 
 .practice-card img {
   width: 100%;
   max-width: 320px;
-  border-radius: 16px;
+
   margin-bottom: 24px;
+
+  border-radius: 16px;
 }
+
+
+/*
+   Large type remains useful when
+   an individual Maya word is displayed.
+*/
 
 .practice-card h2 {
-  font-size: 48px;
   margin: 10px 0 20px;
+
+  font-size: 48px;
+  line-height: 1.15;
 }
 
+
+/* Target sound */
+
 .target {
-  background: #ffe58a;
   padding: 0 4px;
+
+  background: #ffe58a;
+
   border-radius: 6px;
 }
+
+
+/* Progress information */
 
 .practice-info {
   display: flex;
   justify-content: space-between;
+
   margin-bottom: 15px;
-  font-size: 14px;
+
   color: #666;
+
+  font-size: 14px;
 }
+
+
+/* Previous / next */
 
 .navigation {
   display: flex;
-  justify-content: space-between;
+
   gap: 12px;
+
   margin-top: 24px;
 }
 
@@ -120,24 +370,36 @@ button:hover {
 
 .no-audio {
   color: #888;
+
   font-size: 14px;
 }
+
+
+/* ========================================
+   8. LANGUAGE SWITCHER
+======================================== */
 
 .language-switcher {
   display: flex;
   justify-content: flex-end;
+
   gap: 6px;
+
   margin-bottom: 20px;
 }
 
 .language-button {
   width: auto;
+
   margin: 0;
   padding: 7px 11px;
-  font-size: 13px;
-  border-radius: 8px;
+
   background: transparent;
+
   border: 1px solid #ccc;
+  border-radius: 8px;
+
+  font-size: 13px;
 }
 
 .language-button:hover {
@@ -145,6 +407,395 @@ button:hover {
 }
 
 .active-language {
-  font-weight: bold;
   border: 2px solid #333;
+
+  font-weight: 700;
+}
+
+
+/* ========================================
+   9. C01 — EVERYDAY CONVERSATION
+======================================== */
+
+
+/* Wider conversation page */
+
+body:has(.conversation-transcript) main {
+  width: 92%;
+  max-width: 900px;
+}
+
+body:has(.conversation-transcript) .practice-card {
+  width: 100%;
+  max-width: none;
+}
+
+
+/*
+   Conversation title hierarchy
+
+   Maya in Action = page / section
+   Everyday Conversation = activity
+*/
+
+body:has(.conversation-transcript) .practice-card h2 {
+  margin: 4px 0 18px;
+
+  font-size: 28px;
+  line-height: 1.25;
+}
+
+
+/* Transcript */
+
+.conversation-transcript {
+  width: 100%;
+
+  margin-top: 20px;
+}
+
+.conversation-line {
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+
+  gap: 14px;
+
+  margin: 0;
+  padding: 14px 6px;
+
+  border-bottom: 1px solid #eeeeee;
+  border-radius: 10px;
+
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.conversation-line:last-child {
+  border-bottom: none;
+}
+
+
+/*
+   C01 audio highlight.
+   app.js can add this class while a line plays.
+*/
+
+.conversation-line.active-line {
+  background: #fff4c7;
+}
+
+
+/* Speaker */
+
+.conversation-speaker {
+  flex: 0 0 36px;
+
+  width: 36px;
+  height: 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #eeeeee;
+
+  border-radius: 50%;
+
+  font-size: 15px;
+  font-weight: 700;
+}
+
+
+/* Maya sentence */
+
+.conversation-text {
+  flex: 1;
+
+  font-size: 20px;
+  line-height: 1.45;
+
+  text-align: left;
+}
+
+
+/* Line audio */
+
+button.line-audio-button {
+  flex: 0 0 42px;
+
+  width: 42px;
+  min-width: 42px;
+  max-width: 42px;
+  height: 42px;
+
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  font-size: 15px;
+}
+
+
+/* ========================================
+   10. C02 — MAYA IN ACTION
+======================================== */
+
+.conversation-practice-card {
+  padding: 30px 28px;
+}
+
+
+/* Maya sentence + audio */
+
+.conversation-utterance-row {
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+
+  gap: 12px;
+
+  padding: 0 15px;
+}
+
+#maya-follow-text {
+  flex: 1;
+
+  margin: 0;
+
+  font-size: 28px;
+  line-height: 1.35;
+
+  text-align: left;
+}
+
+
+/* ========================================
+   11. MOVING WORD HIGHLIGHT
+======================================== */
+
+.follow-word {
+  display: inline-block;
+
+  margin: 0;
+  padding: 2px 3px;
+
+  border-radius: 6px;
+
+  transition:
+    background-color 0.18s ease,
+    transform 0.18s ease;
+}
+
+.follow-word:first-child {
+  padding-left: 0;
+}
+
+.follow-word.active-word {
+  background: #ffe58a;
+
+  transform: translateY(-1px);
+}
+
+
+/* ========================================
+   12. SPANISH MEANING SUPPORT
+======================================== */
+
+.meaning-support {
+  width: 100%;
+
+  margin: 20px 0 26px;
+  padding: 0;
+
+  border: none;
+}
+
+.translation-row {
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+
+  gap: 12px;
+
+  padding: 13px 15px;
+
+  /*
+     Intentionally subtle:
+     meaning support, not a highlighted answer.
+  */
+
+  background: #fffaf0;
+
+  border: 1px solid #f5ead0;
+  border-radius: 12px;
+}
+
+.conversation-translation {
+  flex: 1;
+
+  margin: 0;
+
+  font-size: 18px;
+  line-height: 1.4;
+
+  text-align: left;
+}
+
+
+/* ========================================
+   13. SMALL AUDIO BUTTONS
+======================================== */
+
+button.inline-audio-button {
+  flex: 0 0 38px;
+
+  width: 38px;
+  min-width: 38px;
+  max-width: 38px;
+  height: 38px;
+
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  font-size: 14px;
+}
+
+
+/* ========================================
+   14. MOBILE
+======================================== */
+
+@media (max-width: 600px) {
+
+  /* Navbar */
+
+  .nav-inner {
+    width: 94%;
+
+    min-height: 58px;
+
+    gap: 8px;
+  }
+
+  button.nav-brand {
+    font-size: 16px;
+  }
+
+  .nav-links {
+    gap: 1px;
+  }
+
+  button.nav-link {
+    padding: 8px 6px;
+
+    font-size: 11.5px;
+  }
+
+
+  /* Main */
+
+  main {
+    width: 94%;
+
+    padding-top: 36px;
+  }
+
+  h1 {
+    font-size: 32px;
+  }
+
+
+  /* Home */
+
+  .home-actions {
+    flex-direction: column;
+
+    gap: 8px;
+  }
+
+  .home-actions button {
+    width: 100%;
+  }
+
+
+  /* C01 */
+
+  body:has(.conversation-transcript) main {
+    width: 94%;
+    max-width: 100%;
+  }
+
+  body:has(.conversation-transcript) .practice-card h2 {
+    font-size: 25px;
+  }
+
+  .conversation-line {
+    gap: 10px;
+
+    padding: 12px 2px;
+  }
+
+  .conversation-speaker {
+    flex-basis: 30px;
+
+    width: 30px;
+    height: 30px;
+
+    font-size: 13px;
+  }
+
+  .conversation-text {
+    font-size: 18px;
+  }
+
+  button.line-audio-button {
+    flex-basis: 38px;
+
+    width: 38px;
+    min-width: 38px;
+    max-width: 38px;
+    height: 38px;
+
+    font-size: 13px;
+  }
+
+
+  /* C02 */
+
+  .conversation-practice-card {
+    padding: 26px 20px;
+  }
+
+  .conversation-utterance-row {
+    padding: 0 12px;
+  }
+
+  #maya-follow-text {
+    font-size: 25px;
+  }
+
+  .translation-row {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .conversation-translation {
+    font-size: 17px;
+  }
 }

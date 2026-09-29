@@ -3,7 +3,11 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
   <title>Maya Practice</title>
 
@@ -12,28 +16,103 @@
 
 <body>
 
+  <!-- =====================================
+       SITE NAVIGATION
+  ====================================== -->
+
+  <nav class="site-nav">
+
+    <div class="nav-inner">
+
+      <button
+        id="nav-home"
+        class="nav-brand"
+        type="button"
+      >
+        Maya Practice
+      </button>
+
+      <div class="nav-links">
+
+        <button
+          id="nav-sound-lab"
+          class="nav-link"
+          type="button"
+        >
+          Sound & Word Lab
+        </button>
+
+        <button
+          id="nav-maya-action"
+          class="nav-link"
+          type="button"
+        >
+          Maya in Action
+        </button>
+
+      </div>
+
+    </div>
+
+  </nav>
+
+
+  <!-- =====================================
+       HOME
+  ====================================== -->
+
   <main>
 
-    <header>
-      <h1>Maya Practice</h1>
-      <p>Keep practicing what you learned each week.</p>
-    </header>
+    <header class="home-header">
 
-    <section class="week-card">
-      <p>WEEK 1</p>
-
-      <h2>Sounds & Pronunciation</h2>
-
-      <p>
-        Review the sounds we practiced in class.
+      <p class="eyebrow">
+        KEEP YOUR MAYA MOVING
       </p>
 
-      <button id="week1-button">
-        Start Practice
-      </button>
+      <h1>
+        Maya Practice
+      </h1>
+
+      <p class="home-intro">
+        Listen, notice, try, and use what you know.
+      </p>
+
+    </header>
+
+
+    <section class="week-card">
+
+      <p class="card-label">
+        SOUND & WORD LAB
+      </p>
+
+      <h2>
+        Sounds & Pronunciation
+      </h2>
+
+      <p class="card-description">
+        Tune your ear, try the sounds, and build with words.
+      </p>
+
+      <div class="home-actions">
+
+        <button id="week1-button">
+          Explore
+        </button>
+
+        <button
+          id="practice-button"
+          class="secondary-button"
+        >
+          Practice
+        </button>
+
+      </div>
+
     </section>
 
   </main>
+
 
   <script src="app.js"></script>
 
