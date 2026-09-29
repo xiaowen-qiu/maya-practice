@@ -2743,7 +2743,7 @@ function playPath(path) {
 
 
   audio =
-    new Audio(path);
+     new Audio(`${path}?v=2`);
 
 
   audio
