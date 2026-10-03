@@ -1,0 +1,56 @@
+[
+  {
+    "maya": "kiik",
+    "spanish": "hermana mayor",
+    "english": "older sister",
+    "topics": ["family"]
+  },
+  {
+    "maya": "suku’un",
+    "spanish": "hermano mayor",
+    "english": "older brother",
+    "topics": ["family"]
+  },
+  {
+    "maya": "íitsin",
+    "spanish": "hermana/o menor",
+    "english": "younger sibling",
+    "topics": ["family"]
+  },
+  {
+    "maya": "k’ab",
+    "spanish": "mano",
+    "english": "hand",
+    "topics": ["body"]
+  },
+  {
+    "maya": "xikin",
+    "spanish": "oreja",
+    "english": "ear",
+    "topics": ["body"]
+  },
+  {
+    "maya": "ni’",
+    "spanish": "nariz",
+    "english": "nose",
+    "topics": ["body"]
+  },
+  {
+    "maya": "ba’ax",
+    "spanish": "qué / cuál",
+    "english": "what / which",
+    "topics": ["questions"]
+  },
+  {
+    "maya": "máax",
+    "spanish": "quién",
+    "english": "who",
+    "topics": ["questions"]
+  },
+  {
+    "maya": "tu’ux",
+    "spanish": "dónde",
+    "english": "where",
+    "topics": ["questions"]
+  }
+]
