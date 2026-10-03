@@ -28,6 +28,7 @@ body {
   background: #f7f7f5;
   color: #222;
 }
+
 button,
 input,
 select,
@@ -47,7 +48,7 @@ textarea {
 
 
 /* ========================================
-   2. SITE NAVIGATION
+   2. OLD SITE NAVIGATION
 ======================================== */
 
 .site-nav {
@@ -629,11 +630,6 @@ button.line-audio-button {
 
   padding: 13px 15px;
 
-  /*
-     Intentionally subtle:
-     meaning support, not a highlighted answer.
-  */
-
   background: #fffaf0;
 
   border: 1px solid #f5ead0;
@@ -678,12 +674,414 @@ button.inline-audio-button {
 
 
 /* ========================================
-   14. MOBILE
+   14. VOCABULARY
 ======================================== */
 
-@media (max-width: 600px) {
+.vocabulary-item {
+  padding: 16px 0;
 
-  /* Navbar */
+  border-bottom: 1px solid #eeeeee;
+}
+
+.vocabulary-item:first-child {
+  padding-top: 0;
+}
+
+.vocabulary-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.vocabulary-word {
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.2;
+
+  margin-bottom: 5px;
+}
+
+.vocabulary-spanish {
+  font-size: 1rem;
+  line-height: 1.35;
+
+  margin-bottom: 2px;
+}
+
+.vocabulary-english {
+  font-size: 0.9rem;
+  line-height: 1.35;
+
+  opacity: 0.6;
+}
+
+
+/* ========================================
+   15. VOCABULARY MATCHING
+======================================== */
+
+.matching-board {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 1fr);
+
+  column-gap: 24px;
+  row-gap: 12px;
+
+  width: 100%;
+}
+
+.matching-column {
+  display: flex;
+  flex-direction: column;
+
+  gap: 16px;
+
+  min-width: 0;
+}
+
+.matching-label {
+  font-size: 0.9rem;
+  font-weight: 700;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  color: #777777;
+}
+
+.matching-option {
+  width: 100%;
+
+  min-height: 76px;
+
+  padding: 16px 20px;
+
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.matching-option.selected {
+  background: #fff3b0;
+
+  border: 2px solid #e6c84f;
+}
+
+.matching-option.matched {
+  background: #dff3e4;
+
+  border: 2px solid #8bc49a;
+
+  opacity: 0.75;
+}
+
+.matching-option.incorrect {
+  background: #fbe3e3;
+
+  border: 2px solid #d99a9a;
+}
+
+
+/* ========================================
+   16. SIDEBAR NAVIGATION
+======================================== */
+
+.site-sidebar {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 230px;
+  height: 100vh;
+
+  background: #fbf7ec;
+
+  border-right: 1px solid #eee8da;
+
+  z-index: 1000;
+}
+
+.sidebar-inner {
+  position: relative;
+
+  height: 100%;
+
+  padding: 42px 24px;
+
+  box-sizing: border-box;
+}
+
+.sidebar-inner::after {
+  content: "";
+
+  position: absolute;
+
+  left: 24px;
+  right: 24px;
+  bottom: 24px;
+
+  height: 90px;
+
+  background:
+    linear-gradient(
+      135deg,
+      transparent 35%,
+      #dce8d7 36%,
+      #dce8d7 42%,
+      transparent 43%
+    ),
+    linear-gradient(
+      45deg,
+      transparent 35%,
+      #ffe39a 36%,
+      #ffe39a 42%,
+      transparent 43%
+    );
+
+  opacity: 0.35;
+
+  pointer-events: none;
+}
+
+/* Sidebar brand */
+
+.sidebar-brand {
+  display: block;
+
+  width: 100%;
+
+  margin: 0 0 52px;
+  padding: 0 12px;
+
+  border: none;
+
+  background: transparent;
+
+  font-family:
+    Calibri,
+    "Segoe UI",
+    Arial,
+    sans-serif;
+
+  font-size: 2rem;
+  font-weight: 700;
+
+  line-height: 1.05;
+
+  text-align: left;
+
+  color: #174f46;
+
+  cursor: pointer;
+}
+
+
+/* Sidebar links container */
+
+.sidebar-links {
+  display: flex;
+  flex-direction: column;
+
+  gap: 14px;
+}
+
+
+/* Sidebar link */
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+
+  width: 100%;
+
+  margin: 0;
+  padding: 14px 16px;
+
+  min-height: 0;
+
+  border: none;
+  border-radius: 18px;
+
+  background: transparent;
+
+  font-family:
+    Calibri,
+    "Segoe UI",
+    Arial,
+    sans-serif;
+
+  font-size: 1.05rem;
+  font-weight: 600;
+
+  line-height: 1.25;
+
+  text-align: left;
+
+  color: #173f39;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+/* Sidebar hover */
+
+.sidebar-link:hover {
+  background: #f5edd9;
+
+  transform: translateX(2px);
+}
+
+
+/* Sidebar active section */
+
+.sidebar-link.active {
+  background: #fff0bd;
+}
+
+
+/* Icon hover */
+
+.sidebar-link:hover .sidebar-icon {
+  transform: scale(1.05);
+}
+
+
+/* Icon */
+
+.sidebar-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex: 0 0 42px;
+
+  width: 42px;
+  height: 42px;
+
+  border-radius: 50%;
+
+  font-size: 1.2rem;
+
+  transition:
+    transform 0.2s ease;
+}
+
+
+/* SVG icons */
+
+.sidebar-icon svg {
+  width: 28px;
+  height: 28px;
+
+  fill: none;
+
+  stroke: currentColor;
+
+  stroke-width: 1.8;
+
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+
+/* Sounds */
+
+.sound-icon {
+  background: #dce8d7;
+
+  color: #316b59;
+}
+
+
+/* Words */
+
+.words-icon {
+  background: #ffe39a;
+
+  color: #a66b16;
+}
+
+
+/* Conversations */
+
+.conversation-icon {
+  background: #f5c5b5;
+
+  color: #9a4938;
+}
+
+
+/* ========================================
+   17. MAIN CONTENT WITH SIDEBAR
+======================================== */
+
+body > main {
+  margin-left: 230px;
+
+  width: calc(100% - 230px);
+
+  max-width: none;
+
+  box-sizing: border-box;
+
+  padding-left: 36px;
+  padding-right: 36px;
+}
+
+
+/* ========================================
+   18. MOBILE
+======================================== */
+
+@media (max-width: 760px) {
+
+  /* Sidebar */
+
+  .site-sidebar {
+    position: static;
+
+    width: 100%;
+    height: auto;
+  }
+
+  .sidebar-inner {
+    padding: 20px;
+  }
+
+  .sidebar-brand {
+    margin-bottom: 18px;
+
+    font-size: 1.6rem;
+  }
+
+  .sidebar-links {
+    gap: 6px;
+  }
+
+
+  /* Main */
+
+  body > main {
+    margin-left: 0;
+
+    width: 100%;
+
+    max-width: none;
+
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+
+  /* Old navbar */
 
   .nav-inner {
     width: 94%;
@@ -708,7 +1106,7 @@ button.inline-audio-button {
   }
 
 
-  /* Main */
+  /* Main content */
 
   main {
     width: 94%;
@@ -738,6 +1136,7 @@ button.inline-audio-button {
 
   body:has(.conversation-transcript) main {
     width: 94%;
+
     max-width: 100%;
   }
 

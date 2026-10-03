@@ -2,6 +2,8 @@ let words = [];
 
 let conversations = [];
 
+let vocabulary = [];
+
 let currentIndex = 0;
 let audio = null;
 
@@ -287,40 +289,66 @@ function t(key) {
    SITE NAVIGATION
 ======================================== */
 
-function siteNavigation() {
+function siteNavigation(activeSection = "") {
 
   return `
 
-    <nav class="site-nav">
+    <nav class="site-sidebar">
 
-      <div class="nav-inner">
+      <div class="sidebar-inner">
 
         <button
           id="nav-home"
-          class="nav-brand"
+          class="sidebar-brand"
           type="button"
         >
           ${t("title")}
         </button>
 
-
-        <div class="nav-links">
+        <div class="sidebar-links">
 
           <button
             id="nav-sound-lab"
-            class="nav-link"
+            class="sidebar-link ${activeSection === "sounds" ? "active" : ""}"
             type="button"
           >
-            ${t("soundLab")}
+            <span class="sidebar-icon sound-icon">
+  <svg viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M5 12c2.5-4 4.5-4 7 0s4.5 4 7 0" />
+    <path d="M5 17c2.5-4 4.5-4 7 0s4.5 4 7 0" />
+  </svg>
+</span>
+            <span>Sounds & Pronunciation</span>
           </button>
 
+          <button
+            id="nav-vocabulary"
+            class="sidebar-link ${activeSection === "vocabulary" ? "active" : ""}"
+            type="button"
+          >
+            <span class="sidebar-icon words-icon">
+  <svg viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M12 21V7" />
+    <path d="M12 8C9 6 7 6 6 8c2 2 4 3 6 3" />
+    <path d="M12 12c3-2 5-2 6 0-2 2-4 3-6 3" />
+    <path d="M12 16c-3-2-5-2-6 0 2 2 4 3 6 3" />
+    <path d="M9 5c1-2 2-3 3-3s2 1 3 3c-1 2-2 3-3 3s-2-1-3-3Z" />
+  </svg>
+</span>
+            <span>Words & Expressions</span>
+          </button>
 
           <button
             id="nav-maya-action"
-            class="nav-link"
+            class="sidebar-link ${activeSection === "conversations" ? "active" : ""}"
             type="button"
           >
-            ${t("mayaInAction")}
+            <span class="sidebar-icon conversation-icon">
+  <svg viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M4 5h16v11H9l-5 4V5Z" />
+  </svg>
+</span>
+            <span>Conversations</span>
           </button>
 
         </div>
@@ -344,9 +372,9 @@ document.addEventListener(
   event => {
 
     const navButton =
-      event.target.closest(
-        "#nav-home, #nav-sound-lab, #nav-maya-action"
-      );
+  event.target.closest(
+    "#nav-home, #nav-sound-lab, #nav-vocabulary, #nav-maya-action"
+  );
 
 
     if (!navButton) {
@@ -364,6 +392,10 @@ document.addEventListener(
       return;
     }
 
+    if (navButton.id === "nav-vocabulary") {
+  showVocabulary();
+  return;
+}
 
     /*
       Maya Practice and
@@ -400,14 +432,24 @@ Promise.all([
     .then(
       response =>
         response.json()
-    )
+    ),
+
+    fetch(
+  "vocabulary.json?version=" +
+  Date.now()
+)
+  .then(
+    response =>
+      response.json()
+  )
 
 ])
 
   .then(
     ([
       wordData,
-      conversationData
+      conversationData,
+      vocabularyData
     ]) => {
 
       words =
@@ -415,6 +457,9 @@ Promise.all([
 
       conversations =
         conversationData;
+
+      vocabulary =
+       vocabularyData;
 
       showHome();
 
@@ -607,9 +652,7 @@ function showHome() {
 
       <!-- SOUND & WORD LAB -->
 
-      <section
-        class="week-card"
-      >
+      <section class="week-card">
 
         <p class="card-label">
           ${t("soundLab")}
@@ -686,7 +729,29 @@ function showHome() {
 
       </section>
 
-    </main>
+<section class="week-card">
+
+  <p class="card-label">
+    Words & Expressions
+  </p>
+
+  <h2>
+    Vocabulary
+  </h2>
+
+  <p class="card-description">
+    Browse Maya words and expressions by topic or A–Z.
+  </p>
+
+  <button
+    id="vocabulary-button"
+  >
+    Explore
+  </button>
+
+</section>
+
+</main>
 
   `;
 
@@ -746,8 +811,840 @@ function showHome() {
       "click",
       showConversationMenu
     );
+    document
+  .getElementById(
+    "vocabulary-button"
+  )
+  .addEventListener(
+    "click",
+    showVocabulary
+  );
+
 
 }
+
+
+
+
+
+
+function showVocabulary() {
+
+  stopCurrentAudio();
+
+  document.body.innerHTML = `
+
+    ${siteNavigation("vocabulary")}
+
+    <main>
+
+      ${languageSwitcher()}
+
+      <header class="home-header">
+
+      <button
+  id="back-to-vocabulary-browse"
+  class="back-button"
+>
+  ← Browse Words
+</button>
+
+        <p class="eyebrow">
+          Words & Expressions
+        </p>
+
+        <h1>
+          Vocabulary
+        </h1>
+
+        <p>
+          Browse words or practice what you know.
+        </p>
+
+      </header>
+
+
+      <section class="week-card">
+
+        <p class="card-label">
+          Explore
+        </p>
+
+        <h2>
+          Browse Words
+        </h2>
+
+        <p class="card-description">
+          Find Maya words and expressions A–Z or by topic.
+        </p>
+
+        <button id="browse-vocabulary-button">
+          Browse
+        </button>
+
+      </section>
+
+
+      <section class="week-card">
+
+        <p class="card-label">
+          Try It
+        </p>
+
+        <h2>
+          Practice
+        </h2>
+
+        <p class="card-description">
+          Match Maya words with their meanings.
+        </p>
+
+        <button id="vocabulary-practice-button">
+          Practice
+        </button>
+
+      </section>
+
+    </main>
+
+  `;
+
+  attachLanguageButtons(
+    showVocabulary
+  );
+
+  document
+  .getElementById(
+    "browse-vocabulary-button"
+  )
+  .addEventListener(
+    "click",
+    showVocabularyBrowse
+  );
+
+  document
+  .getElementById(
+    "vocabulary-practice-button"
+  )
+  .addEventListener(
+    "click",
+    showVocabularyPractice
+  );
+  }
+
+  function showVocabularyPractice() {
+
+  stopCurrentAudio();
+
+  document.body.innerHTML = `
+
+    ${siteNavigation()}
+
+    <main>
+
+      ${languageSwitcher()}
+
+      <button
+        id="back-to-vocabulary"
+        class="back-button"
+      >
+        ‹ Back to Vocabulary
+      </button>
+
+      <header class="home-header">
+
+        <p class="eyebrow">
+          Words & Expressions
+        </p>
+
+        <h1>
+          Practice
+        </h1>
+
+        <p>
+          Choose how you want to practice.
+        </p>
+
+      </header>
+
+      <section class="week-card">
+
+        <p class="card-label">
+          Mix It Up
+        </p>
+
+        <h2>
+          Mixed Practice
+        </h2>
+
+        <p class="card-description">
+          Match 5 words from your vocabulary.
+        </p>
+
+        <button id="mixed-matching-button">
+          Start
+        </button>
+
+      </section>
+
+      <section class="week-card">
+
+        <p class="card-label">
+          Pick a Topic
+        </p>
+
+        <h2>
+          Practice by Topic
+        </h2>
+
+        <p class="card-description">
+          Choose a topic and practice words from that group.
+        </p>
+
+        <button id="topic-practice-button">
+          Choose
+        </button>
+
+      </section>
+
+    </main>
+
+  `;
+
+  attachLanguageButtons(
+    showVocabularyPractice
+  );
+
+  document
+    .getElementById(
+      "back-to-vocabulary"
+    )
+    .addEventListener(
+      "click",
+      showVocabulary
+    );
+
+
+    document
+  .getElementById(
+    "mixed-matching-button"
+  )
+  .addEventListener(
+    "click",
+    showVocabularyMatching
+  );
+}
+
+function showVocabularyMatching() {
+
+  stopCurrentAudio();
+
+  const practiceWords = [...vocabulary]
+    .sort(() => Math.random() - 0.5)
+    .slice(0, 5);
+
+  const meanings = [...practiceWords]
+    .sort(() => Math.random() - 0.5);
+
+  document.body.innerHTML = `
+
+    ${siteNavigation()}
+
+    <main>
+
+      ${languageSwitcher()}
+
+      <button
+        id="back-to-practice"
+        class="back-button"
+      >
+        ‹ Back to Practice
+      </button>
+
+      <header class="home-header">
+
+        <p class="eyebrow">
+          Mixed Practice
+        </p>
+
+        <h1>
+          Match the Words
+        </h1>
+
+        <p>
+          Match each Maya word with its meaning.
+        </p>
+
+      </header>
+
+      <div class="matching-board">
+
+      <div class="matching-label">
+  Maya
+</div>
+
+<div class="matching-label">
+  ${language === "es" ? "Español" : "English"}
+</div>
+
+        <div class="matching-column">
+
+          ${practiceWords
+            .map(
+              item => `
+                <button
+                  class="matching-option maya-option"
+                  data-word="${item.maya}"
+                >
+                  ${item.maya}
+                </button>
+              `
+            )
+            .join("")}
+
+        </div>
+
+        <div class="matching-column">
+
+          ${meanings
+            .map(
+              item => `
+                <button
+                  class="matching-option meaning-option"
+                  data-word="${item.maya}"
+                >
+                  ${
+                    language === "es"
+                      ? item.spanish
+                      : item.english
+                  }
+                </button>
+              `
+            )
+            .join("")}
+
+        </div>
+
+      </div>
+
+                  <div
+        id="matching-next"
+        class="matching-next"
+        style="display: none;"
+      >
+        <button id="next-matching-button">
+          Continue
+        </button>
+      </div>
+
+    </main>
+
+  `;
+
+  attachLanguageButtons(
+    showVocabularyMatching
+  );
+
+  document
+    .getElementById(
+      "back-to-practice"
+    )
+    .addEventListener(
+      "click",
+      showVocabularyPractice
+    );
+
+    let selectedMaya = null;
+
+document
+  .querySelectorAll(
+    ".maya-option"
+  )
+  .forEach(button => {
+
+    button.addEventListener(
+      "click",
+      () => {
+
+        document
+          .querySelectorAll(
+            ".maya-option"
+          )
+          .forEach(item =>
+            item.classList.remove("selected")
+          );
+
+        selectedMaya = button;
+
+        button.classList.add(
+          "selected"
+        );
+
+      }
+    );
+
+  });
+
+document
+  .querySelectorAll(
+    ".meaning-option"
+  )
+  .forEach(button => {
+
+    button.addEventListener(
+      "click",
+      () => {
+
+        if (!selectedMaya) {
+          return;
+        }
+
+        if (
+          selectedMaya.dataset.word ===
+          button.dataset.word
+        ) {
+
+          selectedMaya.classList.remove(
+            "selected"
+          );
+
+          selectedMaya.classList.add(
+            "matched"
+          );
+
+          button.classList.add(
+            "matched"
+          );
+
+         selectedMaya.disabled = true;
+button.disabled = true;
+
+selectedMaya = null;
+
+const matchedWords =
+  document.querySelectorAll(
+    ".maya-option.matched"
+  );
+
+if (
+  matchedWords.length ===
+  practiceWords.length
+) {
+
+  document
+    .getElementById(
+      "matching-next"
+    )
+    .style.display = "block";
+
+}
+
+        } else {
+
+          selectedMaya.classList.add(
+            "incorrect"
+          );
+
+          button.classList.add(
+            "incorrect"
+          );
+
+          setTimeout(
+            () => {
+
+              selectedMaya?.classList.remove(
+                "incorrect"
+              );
+
+              button.classList.remove(
+                "incorrect"
+              );
+
+            },
+            500
+          );
+
+        }
+
+      }
+    );
+
+  });
+
+  document
+  .getElementById(
+    "next-matching-button"
+  )
+  .addEventListener(
+    "click",
+    showVocabularyMatching
+  );
+
+}
+
+
+function showVocabularyAZ() {
+
+  stopCurrentAudio();
+
+  const sortedVocabulary = [...vocabulary]
+    .sort((a, b) =>
+      a.maya.localeCompare(b.maya)
+    );
+
+  document.body.innerHTML = `
+
+    ${siteNavigation()}
+
+    <main>
+
+      ${languageSwitcher()}
+
+      <header class="home-header">
+
+        <p class="eyebrow">
+          Browse Words
+        </p>
+
+        <h1>
+          A–Z
+        </h1>
+
+        <p>
+          Browse Maya words and expressions alphabetically.
+        </p>
+
+      </header>
+
+      <section class="week-card vocabulary-list">
+
+        ${sortedVocabulary
+          .map(
+            item => `
+              <div class="vocabulary-item">
+
+                <div class="vocabulary-word">
+                  ${item.maya}
+                </div>
+
+                <div class="vocabulary-spanish">
+                  ${item.spanish}
+                </div>
+
+                <div class="vocabulary-english">
+                  ${item.english}
+                </div>
+
+              </div>
+            `
+          )
+          .join("")}
+
+      </section>
+
+    </main>
+
+  `;
+
+  attachLanguageButtons(
+    showVocabularyAZ
+  );
+
+}
+
+function showVocabularyBrowse() {
+
+  stopCurrentAudio();
+
+  document.body.innerHTML = `
+
+    ${siteNavigation()}
+
+    <main>
+
+      ${languageSwitcher()}
+
+      <header class="home-header">
+
+        <p class="eyebrow">
+          Words & Expressions
+        </p>
+
+        <h1>
+          Browse Words
+        </h1>
+
+        <p>
+          Find Maya words and expressions A–Z or by topic.
+        </p>
+
+      </header>
+
+      <div class="home-actions">
+
+        <button id="vocabulary-az">
+          A–Z
+        </button>
+
+        <button
+          id="vocabulary-topics"
+          class="secondary-button"
+        >
+          Topics
+        </button>
+
+      </div>
+
+    </main>
+
+  `;
+
+  attachLanguageButtons(
+  showVocabularyBrowse
+);
+
+document
+  .getElementById(
+    "vocabulary-az"
+  )
+  .addEventListener(
+    "click",
+    showVocabularyAZ
+  );
+  document
+  .getElementById(
+    "vocabulary-topics"
+  )
+  .addEventListener(
+    "click",
+    showVocabularyTopics
+  );
+
+}
+
+function showVocabularyTopics() {
+
+  stopCurrentAudio();
+
+  const topics = [
+    ...new Set(
+      vocabulary.flatMap(
+        item => item.topics
+      )
+    )
+  ].sort();
+
+  document.body.innerHTML = `
+
+    ${siteNavigation()}
+
+    <main>
+
+      ${languageSwitcher()}
+
+      <header class="home-header">
+
+        <p class="eyebrow">
+          Browse Words
+        </p>
+
+        <h1>
+          Topics
+        </h1>
+
+        <p>
+          Explore Maya words and expressions by topic.
+        </p>
+
+      </header>
+
+      <section class="week-card">
+
+        ${topics
+          .map(topic => {
+
+            const wordCount =
+              vocabulary.filter(
+                item =>
+                  item.topics.includes(topic)
+              ).length;
+
+            const topicName =
+              topic
+                .replace(/-/g, " ")
+                .replace(
+                  /\b\w/g,
+                  letter =>
+                    letter.toUpperCase()
+                );
+
+            return `
+
+              <div
+                class="vocabulary-topic"
+                data-topic="${topic}"
+                onclick="showVocabularyTopic('${topic}')"
+              >
+
+                <div class="vocabulary-word">
+                  ${topicName}
+                </div>
+
+                <div class="vocabulary-english">
+                  ${wordCount}
+                  ${wordCount === 1 ? "word" : "words"}
+                </div>
+
+              </div>
+
+            `;
+
+          })
+          .join("")}
+
+      </section>
+
+    </main>
+
+  `;
+
+  attachLanguageButtons(
+  showVocabularyTopics
+);
+
+document
+  .getElementById(
+    "back-to-vocabulary-browse"
+  )
+  .addEventListener(
+    "click",
+    showVocabularyBrowse
+  );
+
+document
+  .querySelectorAll(
+    ".vocabulary-topic"
+  )
+  .forEach(item => {
+
+    item.addEventListener(
+      "click",
+      () => {
+        showVocabularyTopic(
+          item.dataset.topic
+        );
+      }
+    );
+
+  });
+
+}
+
+
+function showVocabularyTopic(topic) {
+
+  stopCurrentAudio();
+
+  const topicVocabulary = vocabulary
+    .filter(
+      item =>
+        item.topics.includes(topic)
+    )
+    .sort((a, b) =>
+      a.maya.localeCompare(b.maya)
+    );
+
+  const topicName =
+    topic
+      .replace(/-/g, " ")
+      .replace(
+        /\b\w/g,
+        letter =>
+          letter.toUpperCase()
+      );
+
+  document.body.innerHTML = `
+
+    ${siteNavigation()}
+
+    <main>
+
+      ${languageSwitcher()}
+
+      <button
+        id="back-to-topics"
+        class="back-button"
+      >
+        ‹ Back to Topics
+      </button>
+
+      <header class="home-header">
+
+        <p class="eyebrow">
+          Browse by Topic
+        </p>
+
+        <h1>
+          ${topicName}
+        </h1>
+
+        <p>
+          ${topicVocabulary.length}
+          ${topicVocabulary.length === 1 ? "word" : "words"}
+        </p>
+
+      </header>
+
+      <section class="week-card vocabulary-list">
+
+        ${topicVocabulary
+          .map(
+            item => `
+              <div class="vocabulary-item">
+
+                <div class="vocabulary-word">
+                  ${item.maya}
+                </div>
+
+                <div class="vocabulary-spanish">
+                  ${item.spanish}
+                </div>
+
+                <div class="vocabulary-english">
+                  ${item.english}
+                </div>
+
+              </div>
+            `
+          )
+          .join("")}
+
+      </section>
+
+    </main>
+
+  `;
+
+  attachLanguageButtons(
+    () => showVocabularyTopic(topic)
+  );
+
+  document
+    .getElementById(
+      "back-to-topics"
+    )
+    .addEventListener(
+      "click",
+      showVocabularyTopics
+    );
+
+}
+
+
+
+
+
+
 
 
 /* ========================================
@@ -1591,7 +2488,7 @@ function showConversationMenu() {
 
   document.body.innerHTML = `
 
-    ${siteNavigation()}
+    ${siteNavigation("conversations")}
 
     <main>
 
