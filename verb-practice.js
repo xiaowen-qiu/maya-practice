@@ -717,7 +717,7 @@ function showVerbPractice() {
 
           return `
             <p>
-              <strong>${person[0]}:</strong>
+              <strong>${person[0]}</strong>
               ${answers.join(" / ")}
             </p>
           `;
