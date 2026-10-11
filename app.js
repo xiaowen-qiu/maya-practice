@@ -297,15 +297,30 @@ function siteNavigation(activeSection = "") {
 
       <div class="sidebar-inner">
 
-        <button
-          id="nav-home"
-          class="sidebar-brand"
-          type="button"
-        >
-          ${t("title")}
-        </button>
+  <div class="sidebar-header">
 
-        <div class="sidebar-links">
+    <button
+      id="nav-home"
+      class="sidebar-brand"
+      type="button"
+    >
+      ${t("title")}
+    </button>
+
+    <button
+      id="mobile-menu-toggle"
+      class="mobile-menu-toggle"
+      type="button"
+      aria-label="Open navigation menu"
+      aria-expanded="false"
+      aria-controls="mobile-nav-links"
+    >
+      ☰
+    </button>
+
+  </div>
+
+        <div class="sidebar-links" id="mobile-nav-links">
 
           <button
             id="nav-sound-lab"
@@ -323,7 +338,7 @@ function siteNavigation(activeSection = "") {
 
           <button
             id="nav-vocabulary"
-            class="sidebar-link ${activeSection === "vocabulary" ? "active" : ""}"
+            class="sidebar-link ${activeSection === "words" || activeSection === "vocabulary" ? "active" : ""}"
             type="button"
           >
             <span class="sidebar-icon words-icon">
@@ -351,6 +366,49 @@ function siteNavigation(activeSection = "") {
             <span>Conversations</span>
           </button>
 
+          <div class="sidebar-decoration" aria-hidden="true">
+  <svg viewBox="0 0 185 155"
+       xmlns="http://www.w3.org/2000/svg">
+
+    <!-- Green stepped pattern -->
+    <path
+      d="M0 0 H20 V35 H48 V70 H106 V115 H151 V135
+         H86 V90 H28 V55 H0 Z"
+      fill="#c8dec8"
+    />
+
+    <!-- Yellow corner -->
+    <!-- Yellow stepped corner -->
+<path
+  d="M0 95
+     H20
+     V115
+     H45
+     V135
+     H65
+     V155
+     H0
+     Z"
+  fill="#ffe39a"
+/>
+
+    <!-- Diamond -->
+    <path
+      d="M145 25 L165 45 L145 65 L125 45 Z"
+      fill="none"
+      stroke="#c8dec8"
+      stroke-width="7"
+    />
+
+    <!-- Diamond center -->
+    <path
+      d="M145 38 L152 45 L145 52 L138 45 Z"
+      fill="#ffe39a"
+    />
+
+  </svg>
+</div>
+
         </div>
 
       </div>
@@ -367,46 +425,83 @@ function siteNavigation(activeSection = "") {
   every page is rendered again with innerHTML.
 */
 
-document.addEventListener(
-  "click",
-  event => {
+/*
+  Navigation uses event delegation because
+  every page is rendered again with innerHTML.
+*/
 
-    const navButton =
-  event.target.closest(
+document.addEventListener("click", event => {
+
+const menuButton = event.target.closest("#mobile-menu-toggle");
+
+if (menuButton) {
+  const sidebar = menuButton.closest(".site-sidebar");
+  const isOpen = sidebar.classList.toggle("menu-open");
+
+  menuButton.setAttribute("aria-expanded", String(isOpen));
+  menuButton.setAttribute(
+    "aria-label",
+    isOpen ? "Close navigation menu" : "Open navigation menu"
+  );
+  menuButton.textContent = isOpen ? "✕" : "☰";
+
+  return;
+}
+  const navButton = event.target.closest(
     "#nav-home, #nav-sound-lab, #nav-vocabulary, #nav-maya-action"
   );
 
+  if (!navButton) return;
 
-    if (!navButton) {
-      return;
-    }
+  const routes = {
+    "nav-home": "",
+    "nav-sound-lab": "sounds",
+    "nav-vocabulary": "words",
+    "nav-maya-action": "conversations"
+  };
+
+  const route = routes[navButton.id];
+
+  // Update the URL.
+  if (route) {
+    window.location.hash = route;
+  } else {
+    history.pushState(null, "", window.location.pathname + window.location.search);
+    openMayaRoute();
+  }
+});
 
 
-    if (
-      navButton.id ===
-      "nav-maya-action"
-    ) {
+/*
+  Display the correct page based on the URL.
+*/
 
-      showConversationMenu();
+function openMayaRoute() {
+  const route = window.location.hash.slice(1);
 
-      return;
-    }
-
-    if (navButton.id === "nav-vocabulary") {
-  showVocabulary();
-  return;
+  if (route === "verbs") {
+    showVerbPractice();
+  } else if (route === "conversations") {
+    showConversationMenu();
+  } else if (route === "words") {
+    showVocabulary();
+  } else {
+    // Home and Sounds currently share the same page.
+    showHome();
+  }
 }
 
-    /*
-      Maya Practice and
-      Sound & Word Lab
-      both return to the main practice hub.
-    */
 
-    showHome();
+// Respond when the URL changes.
+window.addEventListener("hashchange", openMayaRoute);
 
-  }
-);
+// Respond to browser Back/Forward navigation.
+window.addEventListener("popstate", openMayaRoute);
+
+
+
+
+    
 
 
 /* ========================================
@@ -459,9 +554,9 @@ Promise.all([
         conversationData;
 
       vocabulary =
-       vocabularyData;
+  vocabularyData;
 
-      showHome();
+openMayaRoute();
 
     }
   )
@@ -610,7 +705,7 @@ function showHome() {
 
   document.body.innerHTML = `
 
-    ${siteNavigation()}
+    ${siteNavigation(window.location.hash === "#sounds" ? "sounds" : "")}
 
     <main>
 

@@ -1,0 +1,277 @@
+
+/* ========================================
+   MAYA PRACTICE — VERB PRACTICE
+======================================== */
+/* Page layout */
+.vp-main {
+  max-width: none;
+}
+.vp-card {
+  max-width: 100%;
+}
+/* Sidebar icon — notebook */
+.vp-icon {
+  background: #e1e8d7;
+  color: #316b59;
+}
+.vp-icon svg {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+/* Tense selection */
+.vp-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 20px 0 14px;
+}
+button.vp-tab {
+  width: auto;
+  flex: 1 1 180px;
+  padding: 15px 20px;
+  background: #f2f1ec;
+  color: #174f46;
+  border: 2px solid transparent;
+  border-radius: 16px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+button.vp-tab.vp-selected {
+  background: #e5efe2;
+  border-color: #316b59;
+  color: #174f46;
+  font-weight: 700;
+}
+button.vp-tab:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+/* Example */
+.vp-example {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 16px 0;
+  padding: 22px;
+  background: #f7f7f2;
+  border-radius: 18px;
+}
+.vp-example strong {
+  color: #174f46;
+  font-size: 1.3rem;
+}
+.vp-example small,
+.vp-muted {
+  color: #666;
+  line-height: 1.6;
+}
+/* Grammar rule */
+.vp-rule {
+  margin-top: 18px;
+}
+.vp-rule summary {
+  color: #174f46;
+  cursor: pointer;
+  font-weight: 700;
+}
+.vp-rule p {
+  line-height: 1.6;
+}
+/* Verb selection */
+.vp-label {
+  display: block;
+  margin: 22px 0 10px;
+  color: #174f46;
+  font-weight: 700;
+}
+.vp-select {
+  width: 100%;
+  padding: 15px 18px;
+  background: white;
+  border: 1px solid #c8d0c7;
+  border-radius: 14px;
+  font: inherit;
+  font-size: 1.05rem;
+}
+/* Conjugation table */
+.vp-scroll {
+  width: 100%;
+  overflow-x: auto;
+  margin: 22px 0;
+}
+.vp-table {
+  width: 100%;
+  min-width: 650px;
+  border-collapse: collapse;
+}
+.vp-table th,
+.vp-table td {
+  text-align: left;
+  padding: 14px 12px;
+  border-bottom: 1px solid #e9e9e5;
+}
+.vp-table thead th {
+  color: #666;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+.vp-table tbody th {
+  width: 22%;
+}
+.vp-table tbody th strong {
+  color: #174f46;
+  font-size: 1.05rem;
+}
+.vp-table tbody th small {
+  display: block;
+  margin-top: 6px;
+  color: #777;
+  font-weight: 400;
+}
+/* Larger answer inputs */
+.vp-input {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 330px;
+  min-height: 58px;
+  padding: 15px 18px;
+background: #fff;
+  border: 1px solid #c9d0cb;
+  border-radius: 14px;
+font: inherit;
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+.vp-input:focus {
+  outline: 2px solid #8caf9c;
+  outline-offset: 2px;
+}
+.vp-input.vp-correct {
+  border-color: #458363;
+  background: #f0f9f1;
+}
+.vp-input.vp-incorrect {
+  border-color: #c69d51;
+  background: #fff9ed;
+}
+/* Feedback */
+.vp-result {
+  display: inline-block;
+  min-width: 26px;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+.vp-good {
+  color: #31734e;
+}
+.vp-try {
+  color: #a4772e;
+}
+/* Action buttons */
+.vp-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.vp-actions button {
+  flex: 1 1 155px;
+  width: auto;
+}
+/* Answer key */
+.vp-key {
+  margin-top: 20px;
+  padding: 20px;
+  background: #f7f7f2;
+  border-radius: 16px;
+}
+.vp-key h3 {
+  color: #174f46;
+}
+.vp-key p {
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+/* Mobile */
+@media (max-width: 760px) {
+  .vp-tabs {
+    flex-direction: column;
+  }
+.vp-actions {
+    flex-direction: column;
+  }
+.vp-input {
+    min-width: 260px;
+  }
+}
+
+/* Clearly indicate the selected tense */
+
+button.vp-tab.vp-selected {
+  background: #dcebe0;
+  border: 2px solid #36785c;
+  color: #275d47;
+  font-weight: 700;
+  box-shadow: 0 2px 0 rgba(54, 120, 92, 0.12);
+}
+
+button.vp-tab:not(.vp-selected):not(:disabled) {
+  background: #f2f1ec;
+  border: 2px solid transparent;
+  color: #555;
+}
+
+button.vp-tab:not(:disabled):hover {
+  border-color: #8caf9c;
+}
+
+/* Current tense label above exercise */
+
+.vp-current-tense {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 18px 0 24px;
+  padding: 13px 18px;
+  background: #e5efe2;
+  color: #275d47;
+  border-radius: 12px;
+  font-weight: 700;
+}
+
+.vp-tense-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #36785c;
+}
+
+.vp-current-tense small {
+  margin-left: auto;
+  color: #567365;
+  font-weight: 400;
+}
+
+/* Pattern guide inside expandable section */
+
+.vp-rule .vp-guide {
+  margin-top: 20px;
+  padding: 20px 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.vp-rule .vp-guide h2 {
+  font-size: 1.4rem;
+  margin-bottom: 12px;
+}
+
+.vp-rule .vp-guide-table {
+  margin-top: 16px;
+}
