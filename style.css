@@ -1039,14 +1039,24 @@ body > main {
 
 
 /* ========================================
-   18. MOBILE
+   18. RESPONSIVE NAVIGATION
 ======================================== */
 
-/* Larger sidebar navigation buttons */
+/* Desktop: hide hamburger button */
+.mobile-menu-toggle {
+  display: none;
+}
+
+/* Larger desktop navigation buttons */
 .sidebar-link {
   min-height: 90px;
   padding: 20px 24px;
 }
+
+
+/* ========================================
+   19. MOBILE LAYOUT
+======================================== */
 
 @media (max-width: 760px) {
 
@@ -1054,47 +1064,123 @@ body > main {
 
   .site-sidebar {
     position: static;
-
     width: 100%;
     height: auto;
   }
 
   .sidebar-inner {
-    padding: 20px;
+    height: auto;
+    padding: 16px 20px;
+  }
+
+  /* Header: brand + hamburger */
+
+  .sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
   }
 
   .sidebar-brand {
-    margin-bottom: 18px;
-
+    width: auto;
+    margin: 0;
+    padding: 0;
     font-size: 1.6rem;
   }
 
-  .sidebar-links {
-    gap: 6px;
+  /* Hamburger button */
+
+  .mobile-menu-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex: 0 0 44px;
+    width: 44px;
+    height: 44px;
+
+    margin: 0;
+    padding: 0;
+
+    border: none;
+    border-radius: 12px;
+
+    background: #fff0bd;
+    color: #173f39;
+
+    font-size: 25px;
+    cursor: pointer;
   }
 
+  /* Navigation closed by default */
 
-  /* Main */
+  .sidebar-links {
+    display: none;
+  }
+
+  /* Navigation when hamburger is clicked */
+
+  .site-sidebar.menu-open .sidebar-links {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 18px;
+  }
+
+  /* Compact mobile navigation buttons */
+
+  .sidebar-link {
+    min-height: 56px;
+    padding: 10px 12px;
+
+    border-radius: 16px;
+    font-size: 1.05rem;
+  }
+
+  /* Geometric decoration */
+
+  .sidebar-decoration {
+    display: none;
+  }
+
+  .site-sidebar.menu-open .sidebar-decoration {
+    display: block;
+    position: relative;
+
+    left: auto;
+    bottom: auto;
+
+    width: 185px;
+    height: 155px;
+
+    margin-top: 20px;
+  }
+
+  /* Main content */
 
   body > main {
     margin-left: 0;
-
     width: 100%;
-
     max-width: none;
 
     padding-left: 20px;
     padding-right: 20px;
   }
 
+  main {
+    padding-top: 36px;
+  }
+
+  h1 {
+    font-size: 32px;
+  }
 
   /* Old navbar */
 
   .nav-inner {
     width: 94%;
-
     min-height: 58px;
-
     gap: 8px;
   }
 
@@ -1108,29 +1194,13 @@ body > main {
 
   button.nav-link {
     padding: 8px 6px;
-
     font-size: 11.5px;
   }
-
-
-  /* Main content */
-
-  main {
-    width: 94%;
-
-    padding-top: 36px;
-  }
-
-  h1 {
-    font-size: 32px;
-  }
-
 
   /* Home */
 
   .home-actions {
     flex-direction: column;
-
     gap: 8px;
   }
 
@@ -1138,13 +1208,11 @@ body > main {
     width: 100%;
   }
 
-
-  /* C01 */
+  /* Conversation C01 */
 
   body:has(.conversation-transcript) main {
-    width: 94%;
-
-    max-width: 100%;
+    width: 100%;
+    max-width: none;
   }
 
   body:has(.conversation-transcript) .practice-card h2 {
@@ -1153,16 +1221,13 @@ body > main {
 
   .conversation-line {
     gap: 10px;
-
     padding: 12px 2px;
   }
 
   .conversation-speaker {
     flex-basis: 30px;
-
     width: 30px;
     height: 30px;
-
     font-size: 13px;
   }
 
@@ -1172,17 +1237,14 @@ body > main {
 
   button.line-audio-button {
     flex-basis: 38px;
-
     width: 38px;
     min-width: 38px;
     max-width: 38px;
     height: 38px;
-
     font-size: 13px;
   }
 
-
-  /* C02 */
+  /* Conversation C02 */
 
   .conversation-practice-card {
     padding: 26px 20px;
@@ -1204,26 +1266,4 @@ body > main {
   .conversation-translation {
     font-size: 17px;
   }
-
-    /* Compact mobile navigation */
-
-  .sidebar-links {
-    gap: 4px;
-  }
-
-  .sidebar-link {
-    min-height: 56px;
-    padding: 10px 12px;
-    border-radius: 16px;
-    font-size: 0.95rem;
-  }
-
-  .sidebar-decoration {
-    display: none;
-  }
-
-  .sidebar-brand {
-    margin-bottom: 10px;
-  }
 }
-
